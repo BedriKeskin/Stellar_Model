@@ -1,0 +1,6 @@
+framework module Pods_Stellar_ModelTests {
+  umbrella header "Pods-Stellar ModelTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

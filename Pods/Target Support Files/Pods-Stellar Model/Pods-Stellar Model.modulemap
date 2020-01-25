@@ -1,0 +1,6 @@
+framework module Pods_Stellar_Model {
+  umbrella header "Pods-Stellar Model-umbrella.h"
+
+  export *
+  module * { export * }
+}
