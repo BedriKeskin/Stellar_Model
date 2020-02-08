@@ -9,13 +9,13 @@
 import UIKit
 import MessageUI
 import Amplitude_iOS
+import StoreKit
 
 class Info: UIViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var tvText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let text = NSMutableAttributedString(string: "In astrophysics, a polytrope refers to a solution of the Lane–Emden equation in which the pressure depends upon the density in the form\n")
         let image = NSTextAttachment()
         image.image = UIImage(named: "LaneEmden.png")
@@ -37,6 +37,32 @@ class Info: UIViewController, MFMailComposeViewControllerDelegate {
         Amplitude.instance().initializeApiKey("9656f73c8990e6e6190f50c6e6cce7a5")
     }
     
+    @IBAction func btShareAppClick(_ sender: Any) {
+        Amplitude.instance().logEvent("btShareAppClick")
+            let textToShare = "Check out Stellar Model app"
+            if let myWebsite = URL(string: "http://itunes.apple.com/app/id1496421896") {
+                let objectsToShare = [textToShare, myWebsite] as [Any]
+                let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+                activityVC.popoverPresentationController?.sourceView = sender as? UIView
+                self.present(activityVC, animated: true, completion: nil)
+            }
+    }
+    
+    @IBAction func btRateAppClick(_ sender: Any) {
+        Amplitude.instance().logEvent("btRateAppClick")
+        if #available(iOS 10.3, *) {SKStoreReviewController.requestReview()}
+            else if let url = URL(string: "itms-apps://itunes.apple.com/app/id1496421896") {
+               if #available(iOS 10, *) {UIApplication.shared.open(url, options: [:], completionHandler: nil)}
+                else {UIApplication.shared.openURL(url)}
+           }
+    }
+    
+    @IBAction func btReverseLookupClick(_ sender: Any) {
+        Amplitude.instance().logEvent("btReverseLookupClick")
+        UIApplication.shared.open(NSURL(string: "https://itunes.apple.com/app/id1482011745")! as URL, options: [:], completionHandler: nil)
+        Amplitude.instance().logEvent("open_ReverseLookupLink")
+    }
+    
     @IBAction func btBedriClick(_ sender: Any) {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
@@ -55,16 +81,12 @@ class Info: UIViewController, MFMailComposeViewControllerDelegate {
     }
 
     @IBAction func btAnkaraUniclick(_ sender: Any) {
-        Amplitude.instance().logEvent("btAnkaraUniclick")
-
         if let url = NSURL(string: "https://en.ankara.edu.tr"){
             UIApplication.shared.open(url as URL, options: [:])
         }
     }
     
     @IBAction func btAstronomyClick(_ sender: Any) {
-        Amplitude.instance().logEvent("btAstronomyClick")
-
         if let url = NSURL(string: "http://fenbilimleri.ankara.edu.tr/en/astronomy-and-space-sciences/"){
             UIApplication.shared.open(url as URL, options: [:])
         }

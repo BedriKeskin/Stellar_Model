@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3F21401B23DBACB4005E7F67 /* PrivacyPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F21401A23DBACB4005E7F67 /* PrivacyPolicy.swift */; };
 		3F25E1B023D666BE004DC101 /* PolytropesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F25E1AF23D666BE004DC101 /* PolytropesCell.swift */; };
+		3F3B7A6D23E88E600036B949 /* Homogeneous.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3B7A6C23E88E600036B949 /* Homogeneous.swift */; };
+		3F3B7A6F23E8C44D0036B949 /* HomogenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3B7A6E23E8C44D0036B949 /* HomogenCell.swift */; };
 		3F48BB7A23D3E3ED000CB674 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48BB7923D3E3ED000CB674 /* AppDelegate.swift */; };
 		3F48BB7C23D3E3ED000CB674 /* Polytropes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48BB7B23D3E3ED000CB674 /* Polytropes.swift */; };
 		3F48BB7E23D3E3ED000CB674 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F48BB7D23D3E3ED000CB674 /* Info.swift */; };
@@ -46,6 +48,8 @@
 		136896396566C46077E1FEE9 /* Pods_Stellar_Model.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stellar_Model.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F21401A23DBACB4005E7F67 /* PrivacyPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicy.swift; sourceTree = "<group>"; };
 		3F25E1AF23D666BE004DC101 /* PolytropesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolytropesCell.swift; sourceTree = "<group>"; };
+		3F3B7A6C23E88E600036B949 /* Homogeneous.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homogeneous.swift; sourceTree = "<group>"; };
+		3F3B7A6E23E8C44D0036B949 /* HomogenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomogenCell.swift; sourceTree = "<group>"; };
 		3F48BB7623D3E3ED000CB674 /* Stellar Model.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stellar Model.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F48BB7923D3E3ED000CB674 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F48BB7B23D3E3ED000CB674 /* Polytropes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polytropes.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				3F48BB7923D3E3ED000CB674 /* AppDelegate.swift */,
 				3F48BB7B23D3E3ED000CB674 /* Polytropes.swift */,
 				3F25E1AF23D666BE004DC101 /* PolytropesCell.swift */,
+				3F3B7A6C23E88E600036B949 /* Homogeneous.swift */,
+				3F3B7A6E23E8C44D0036B949 /* HomogenCell.swift */,
 				3F48BB7D23D3E3ED000CB674 /* Info.swift */,
 				3F21401A23DBACB4005E7F67 /* PrivacyPolicy.swift */,
 				3F48BB7F23D3E3ED000CB674 /* Main.storyboard */,
@@ -191,6 +197,7 @@
 				3F48BB7323D3E3ED000CB674 /* Frameworks */,
 				3F48BB7423D3E3ED000CB674 /* Resources */,
 				1CEFBB22FF2C31825A5555E4 /* [CP] Embed Pods Frameworks */,
+				3F8B34F623E119CB0028E093 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -252,13 +259,16 @@
 				TargetAttributes = {
 					3F48BB7523D3E3ED000CB674 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1130;
 					};
 					3F48BB8B23D3E3F2000CB674 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = 3F48BB7523D3E3ED000CB674;
 					};
 					3F48BB9623D3E3F2000CB674 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = 3F48BB7523D3E3ED000CB674;
 					};
 				};
@@ -353,6 +363,25 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Stellar Model/Pods-Stellar Model-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3F8B34F623E119CB0028E093 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
+		};
 		5FEE1787009D666F720F484A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -422,6 +451,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F21401B23DBACB4005E7F67 /* PrivacyPolicy.swift in Sources */,
+				3F3B7A6F23E8C44D0036B949 /* HomogenCell.swift in Sources */,
+				3F3B7A6D23E88E600036B949 /* Homogeneous.swift in Sources */,
 				3F25E1B023D666BE004DC101 /* PolytropesCell.swift in Sources */,
 				3F48BB7E23D3E3ED000CB674 /* Info.swift in Sources */,
 				3F48BB7A23D3E3ED000CB674 /* AppDelegate.swift in Sources */,
@@ -514,7 +545,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -602,15 +633,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L33HZ4XGD4;
 				INFOPLIST_FILE = "Stellar Model/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keskin.Stellar-Model";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -621,15 +654,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L33HZ4XGD4;
 				INFOPLIST_FILE = "Stellar Model/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keskin.Stellar-Model";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -650,7 +685,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keskin.Stellar-ModelTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stellar Model.app/Stellar Model";
 			};
@@ -672,7 +707,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keskin.Stellar-ModelTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stellar Model.app/Stellar Model";
 			};
@@ -693,7 +728,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keskin.Stellar-ModelUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Stellar Model";
 			};
@@ -714,7 +749,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keskin.Stellar-ModelUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Stellar Model";
 			};

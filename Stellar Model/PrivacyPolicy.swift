@@ -1,6 +1,6 @@
 //
 //  PrivacyPolicy.swift
-//  Stellar Model
+//  Stellar Model 
 //
 //  Created by Bedri Keskin on 1/25/20.
 //  Copyright © 2020 Bedri Keskin. All rights reserved.

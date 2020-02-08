@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '10.0'
+ platform :ios, '12.1'
 
 target 'Stellar Model' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -8,6 +8,7 @@ target 'Stellar Model' do
   # Pods for Stellar Model
   pod 'Amplitude-iOS'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Crashlytics'
 
   target 'Stellar ModelTests' do
     inherit! :search_paths
