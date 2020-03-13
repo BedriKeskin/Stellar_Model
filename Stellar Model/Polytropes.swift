@@ -5,6 +5,14 @@
 //  Created by Bedri Keskin on 1/19/20.
 //  Copyright © 2020 Bedri Keskin. All rights reserved.
 //
+// Bedri Keskin
+// bedri.keskin@gmail.com
+// PhD Student
+// Ankara University, Turkiye
+// Astronomy and Space Science
+// SWIFT reinterpretation of Python code of "Astrophysics with a PC"
+// "Chapter 7 - Polytropes"
+// https://github.com/cdacos/astrophysics_with_a_pc/blob/master/python/ch07_polytropes.py
 
 import UIKit
 import Foundation
@@ -75,35 +83,35 @@ class Polytropes: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         aiActIndic.isHidden = false
         aiActIndic.startAnimating()
         self.view.addSubview(aiActIndic)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {//Act Ind'ın butona bastıktan hemen sonra donmesi için bütün kodun bunun içinde olması lazım
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {//aiActIndic'ın butona bastıktan hemen sonra dönmesi için bütün kodun bunun içinde olması lazım
                 
         if let xxx = Double(self.tfpolitIndex.text!), xxx >= 0, xxx <= 4.999 {
-                    self.n = xxx}
-        else {
+                    self.n = xxx
+        } else {
             self.tfpolitIndex.text = ""
             self.tfpolitIndex.becomeFirstResponder()
             self.aiActIndic.stopAnimating()
             return
         }
         if let xxx = Double(self.tfStepSize.text!), xxx >= 0.01, xxx <= 0.1 {
-                    self.dr = xxx}
-        else {
+                    self.dr = xxx
+        } else {
             self.tfStepSize.text = ""
             self.tfStepSize.becomeFirstResponder()
             self.aiActIndic.stopAnimating()
             return
         }
         if let xxx = Double(self.tfMass.text!), xxx > 0 {
-                    self.mass = xxx}
-        else {
+                    self.mass = xxx
+        } else {
             self.tfMass.text = ""
             self.tfMass.becomeFirstResponder()
             self.aiActIndic.stopAnimating()
             return
         }
         if let xxx = Double(self.tfRadius.text!), xxx > 0 {
-                    self.rad = xxx}
-        else {
+                    self.rad = xxx
+        } else {
             self.tfRadius.text = ""
             self.tfRadius.becomeFirstResponder()
             self.aiActIndic.stopAnimating()
@@ -118,7 +126,7 @@ class Polytropes: UIViewController, UITableViewDataSource, UITableViewDelegate, 
                 self.d[self.i] = pow(self.f[self.i], self.n)
                 self.m[self.i] = -self.x[self.i] * self.x[self.i] * self.h[self.i]
         
-        // compute first step
+        // first step
                 self.i = 1
                 self.x[self.i]=self.dr
                 self.f[self.i] = 1.0 - pow(self.x[self.i], 2) / 6.0 + pow(self.x[self.i], 4) * self.n / 120.0
@@ -127,13 +135,13 @@ class Polytropes: UIViewController, UITableViewDataSource, UITableViewDelegate, 
                 self.d[self.i] = pow(self.f[self.i], self.n)
                 self.m[self.i] = -self.x[self.i] * self.x[self.i] * self.h[self.i]
 
-        // initialize main cycle
-        var verder:Double = 1
+        // main cycle
+        var iter:Double = 1
                 var x12:[Double] = Array(repeating: 0, count: self.arraysize)
                 var f12:[Double] = Array(repeating: 0, count: self.arraysize)
                 var h12:[Double] = Array(repeating: 0, count: self.arraysize)
 
-        while verder > 0 {
+        while iter > 0 {
             x12[self.i] = self.x[self.i] + 0.5 * self.dr
             f12[self.i] = self.f[self.i] + 0.5 * self.dr * self.h[self.i]
             
@@ -154,8 +162,8 @@ class Polytropes: UIViewController, UITableViewDataSource, UITableViewDelegate, 
                     self.i = self.i + 1
                 }else {
                     // this else is reached if f1 was negative
-                    verder=0}
-            } else {verder=0}
+                    iter=0}
+            } else {iter=0}
         }
 
                 self.tblPolytropes.reloadData()

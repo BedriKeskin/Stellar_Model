@@ -5,6 +5,14 @@
 //  Created by Bedri Keskin on 2/3/20.
 //  Copyright © 2020 Bedri Keskin. All rights reserved.
 //
+// Bedri Keskin
+// bedri.keskin@gmail.com
+// PhD Student
+// Ankara University, Turkiye
+// Astronomy and Space Science
+// SWIFT reinterpretation of Python code of "Astrophysics with a PC"
+// "8 - Homogeneous Stellar Models"
+// https://github.com/cdacos/astrophysics_with_a_pc/blob/master/python/ch08_stellar_model.py
 
 import UIKit
 import Foundation
